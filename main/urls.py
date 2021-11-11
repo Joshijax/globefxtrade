@@ -17,6 +17,7 @@ urlpatterns = [
      path('about-us/', views.About, name='about'),
      path('invest/', views.Investments, name='invest'),
      path('package/', views.package, name='package'),
+     path('services/', views.Services, name='services'),
      path('contact/', views.contact, name='contact'),
      path('notification/', views.noti, name='noti'),
      path('contact-send/', views.ContactUs, name='contacter'),
@@ -26,7 +27,7 @@ urlpatterns = [
       path('resend/<username>/', views.resend, name='resend'),
       path('password_resett/', views.CustomPasswordResetView.as_view(), name='password_resett'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-
+ 
       
      
     path('logout/', views.logout_request, name='logout'),

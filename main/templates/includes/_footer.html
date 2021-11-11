@@ -17,12 +17,12 @@
     </div>
     <!-- /.End of breadcrumbs -->
     <div class="action_btn_inner">
-        <a href="register.html#tab1" class="action_btn">
+        <a href="{% url 'main:register' %}" class="action_btn">
             <span class="action_title">Register</span>
             <span class="lnr lnr-chevron-right action_icon"></span>
-            <span class="action_sub_title">Join the new Yera of cryptocurrency exchange</span>
+            <span class="action_sub_title">Join the new era of cryptocurrency exchange</span>
         </a>
-        <a href="register.html#tab2" class="action_btn">
+        <a href="{% url 'main:login' %}" class="action_btn">
             <span class="action_title">Sign In</span>
             <span class="lnr lnr-chevron-right action_icon"></span>
             <span class="action_sub_title">Access the cryptocurrency experience you deserve</span>
@@ -53,11 +53,10 @@
                             <div class="footer-box">
                                 <h3 class="footer-title">Our Company</h3>
                                 <ul class="footer-list">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="coinmarket.html">Coinmarket</a></li>
-                                    <li><a href="faq.html">F.A.Q</a></li>
-                                    <li><a href="service.html">Service</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{% url 'main:about' %}">About</a></li>
+                                    
+                                    <li><a href="{% url 'main:services' %}">Service</a></li>
+                                    <li><a href="{% url 'main:contact' %}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -66,22 +65,8 @@
                                 <h3 class="footer-title">Services</h3>
                                 <ul class="footer-list">
 
-                                    <li><a href="service/data-protection.html">Data Protection</a></li>
-
-                                    <li><a href="service/security-protected.html">Security Protected</a></li>
-
-                                    <li><a href="service/support-247.html">Support 24/7</a></li>
-
-                                    <li><a href="service/payment-methods.html">Payment Methods</a></li>
-
-                                    <li><a href="service/registered-company.html">Registered Company</a></li>
-
-                                    <li><a href="service/secured-company.html">Secured Company</a></li>
-
-                                    <li><a href="service/live-exchange-rates.html">Live Exchange Rates</a></li>
-
-                                    <li><a href="service/ecuritydashanddashprivacy-centric.html">Security and
-                                            Privacy-Centric</a></li>
+                                    <li><a href="{% url 'main:services' %}">Service</a></li>
+                                    <li><a href="{% url 'main:contact' %}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>

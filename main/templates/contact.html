@@ -1,114 +1,139 @@
 {% extends 'base/base.html' %}
 {% block content %}
 {% load static %}
+
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- /.End of loader wrapper-->
 {% include 'includes/_navbars.html' %}
+<!-- DEBUG-VIEW ENDED 2 APPPATH/Config/../Views/themes/website_template/header.php -->
+<!-- DEBUG-VIEW START 3 APPPATH/Config/../Views/themes/website_template/layout.php -->
+<!-- DEBUG-VIEW START 1 APPPATH/Config/../Views/themes/website_template/about.php -->
 
-
-<!--breadcrumb area-->
-<section class="breadcrumb-area fixed-head blue-bg">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 centered">
-                <div class="banner-title">
-                    <h2>Contact us</h2>
-                </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-<!--/breadcrumb area-->
-
-<!--Content Section-->
-<section class="section-padding gradient-overlay cl-white">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-                <div class="section-title centered">
-                    <h2>Any asking to us?</h2>
-                    <p>Get In touch using any details below or fill out the form</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="contact-form">
-                    <form action="#" id="conform">
-                        <h4>Get in touch</h4>
-                        <p>Send us a message if you need any help</p>
-                        {% if messages %}
-
-                        {% for message in messages %}
-                        <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show"
-                            {% endif %} role="alert">
-                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                            {{ message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+    <div class="page_header"
+        data-parallax-bg-image="https://phpcryptomarket.bdtask.com/demo-v4.0/public/uploads/03d99f85c1b60a59fc101c26fb8a2b3e.jpg"
+        data-parallax-direction="">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="haeder-text">
+                            <h1>Contact</h1>
+                            <p>Globefxtrade, giving you the access to great investment oppurtunity.</p>
                         </div>
-                        {% endfor %}
-
-                        {% endif %}
-                        <input type="text" name="name" placeholder="Name" required>
-                        <input type="text" name="phone" placeholder="Phone" required>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <textarea name="message" rows="4" placeholder="Your message" required></textarea>
-                        <button type="submit" id="conbtn" class="bttn-mid btn-fill">Send message</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="contact-content">
-                    <h4>Contact Details</h4>
-                    <p>130 Hollister Church Rd, Palatka, FL, 32177</p>
-                    <p>745 Old Springville Rd, Springville, TN, 38256</p>
-                    <h5>Call for emergencies</h5>
-                    <p>+1(561) 674-9875</p>
-                    <p>info@worldcryptocoinx.com</p>
-                    <div class="social">
-                        <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="instagram-bg"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="pinterest-bg"><i class="fa fa-pinterest-p"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!--/Content Section-->
 
-<!-- Newslatter -->
-<section class="section-padding gradient-overlay">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8 centered cl-white">
-                <div class="section-title mb-20">
-                    <h2>Don't miss any update</h2>
-                </div>
-                <div class="newslatter">
-                    <form action="#">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit"><i class="fa fa-paper-plane"></i></button>
+    <div class="contact_content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="row">
+                        <div class="col-sm-5 p_r_40">
+                            <h1 class="contact_title">Contact</h1>
+                            <div class="contacts_info">
+                                <div class="address">
+                                    <p>1355 Market Street, Suite 900 San Francisco, CA 94103</p>
+                                </div>
+                                <div class="phone_fax">
+                                    <div>
+                                        <p>Phone</p>
+                                        <p>Fax</p>
+                                    </div>
+                                    <div>
+                                        <a href="#">+1 (514) 352-1010</a>
+                                        <a href="#">+1 (514) 352-7511</a>
+                                    </div>
+                                </div>
+                                <ul class="opening_hours">
+                                    <li>
+                                        <p>Monday-Wednesday</p>
+                                        <p>10 am - 6 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>Thursday-Friday</p>
+                                        <p>10 am - 9 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>Saturday</p>
+                                        <p>9:30 am - 5 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>Sunday</p>
+                                        <p>12 pm - 5 pm</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 p_l_40">
+                            <div class="map_widget">
+                                <!-- The element that will contain our Google Map. This is used in both the Javascript and CSS above. -->
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="https://phpcryptomarket.bdtask.com/demo-v4.0/home/contactMsg" id="contactForm"
+                        class="contact_form" name="contactForm" method="post" accept-charset="utf-8">
+                        <input type="hidden" name="csrf_test_name" value="9c4bfdf3dfb81d2a0b3921295422dd43" />
+                        <h1 class="contact_title"></h1>
+                        <div class="form-group">
+                            <label>Name <span class="text-danger"> *</span></label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="f_name" name="f_name">
+                                    <p class="help-block">First Name</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="l_name" name="l_name">
+                                    <p class="help-block">Last Name</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Company<span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Email Address<span class="text-danger"> *</span></label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Phone<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" id="phone" name="phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tell Us About Your Project<span class="text-danger"> *</span></label>
+                            <textarea class="form-control" rows="7" id="comment" name="comment"></textarea>
+                        </div>
+                        <button onclick="demoModeOne()" type="submit" class="btn btn-default">Get in touch</button>
                     </form>
-                    <p><i class="fa fa-info-circle"></i>We will never send spam</p>
                 </div>
             </div>
         </div>
     </div>
-</section><!-- /Newslatter -->
+    <!--  /.End of page header -->
+<!-- /.End of team content -->
 
+<!-- /.End of testimonial content -->
+<!-- DEBUG-VIEW ENDED 1 APPPATH/Config/../Views/themes/website_template/about.php -->
 
-
+<!-- DEBUG-VIEW ENDED 3 APPPATH/Config/../Views/themes/website_template/layout.php -->
+<!-- DEBUG-VIEW START 4 APPPATH/Config/../Views/themes/website_template/footer.php -->
 
 
 
 {% include 'includes/_footer.html' %}
-{% include 'includes/_scripts.html' %}
+
 
 
 {% endblock %}

@@ -327,6 +327,9 @@ def  loadmessage(request):
     email.send()
     return render(request, 'includes/message.html', {'media_url': settings.MEDIA_URL,'message': msg})
 
+def  Services(request):
+    
+    return render(request, 'service.html', {'media_url': settings.MEDIA_URL})
 
 def  package(request):
     

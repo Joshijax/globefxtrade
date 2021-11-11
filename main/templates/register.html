@@ -1,0 +1,148 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+        {% include 'includes/_navbars.html' %}
+     <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="reg-wrapper">
+            <div class="container">
+                <div class="col-sm-7 col-md-6">
+                    <div class="">
+                        <ul class="nav nav-tabs">
+                            <li><a  data-toggle="tab">Register</a></li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            <div class="row">
+                                <!-- alert message -->
+                                                                    
+                                                                    
+                              
+                            </div>
+                            <div class="">
+                            <form id="regForm" name="registerForm" method="post" >
+                                <div class="row"> 
+                                    <div class="col-xl-12">
+                                        {% if messages %}
+                                            {% for message in messages %}
+                                            <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show"{% endif %} role="alert">
+                                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                                {{ message }}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            {% endfor %}
+
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xl-12" id='message'>
+                                                
+                                    </div>   
+                                    <div class="col-sm-6">
+                                    
+                                        <div class="input">
+                                            <input class="input__field"  type="text" name='name' placeholder="First Name" autocomplete="off" required>
+                                            <label class="input__label" for="f_name">
+                                                <span class="input__label-content" data-content="First Name">First Name</span>
+                                            </label>
+                                        </div>
+                                    </div>    
+                                    <div class="col-sm-6">
+                                        <div class="input">
+                                            <input class="input__field" type="text" name='lastname' placeholder="Last Name" autocomplete="off" required>
+                                            <label class="input__label" for="l_name">
+                                                <span class="input__label-content" data-content="Last Name">Last Name</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-sm-6">
+                                        <div class="input">
+                                            <input class="input__field" type="text" name="username" id="username" required>
+                                            <label class="input__label" for="username">
+                                                <span class="input__label-content" data-content="Username">Username</span>
+                                            </label>
+                                        </div>
+                                    </div>    
+                                    <div class="col-sm-6">
+                                        <div class="input">
+                                            <input class="input__field" type="number" name='phone' placeholder="Phone number" id="regphone" autocomplete="off" required>
+                                            <label class="input__label" for="phone">
+                                                <span class="input__label-content" data-content="Phone">Phone</span>
+                                            </label>
+                                            <div style="" id="CheckPhoneMatch1"></div>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                                
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <input class="input__field" type="email" name='email' placeholder="Email Address" autocomplete="off" required>
+                                            <label class="input__label" for="email">
+                                                <span class="input__label-content" data-content="Email Address">Email Address</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <input class="input__field" type="password" name='password' placeholder="Password" id="regpass" required>
+                                            <label class="input__label" for="pass">
+                                                <span class="input__label-content" data-content="Password">Password</span>
+                                            </label>
+                                            <div style="margin-top: 7px; margin-left: 22px;" id="CheckPasswordMatch1"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <input class="input__field" type="password" name='password2' placeholder="Retype-password" id="regpass1" required>
+                                            <label class="input__label" for="r_pass">
+                                                <span class="input__label-content" data-content="Confirm Password">Confirm Password</span>
+                                            </label>
+                                            <div style="margin-top: 7px; margin-left: 22px;" id="CheckPasswordMatch"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <label>
+                                                <input type="checkbox" id="checkbox" name="accept_terms" value="ptConfirm"> 
+                                            </label>
+                                            Your Password at Global Crypto are encrypted and Secured <a target="_blank" href="https://phpcryptomarket.bdtask.com/demo-v4.0" class="checkbox-link"></a>  
+                                                <a target="_blank" href="https://phpcryptomarket.bdtask.com/demo-v4.0" class="checkbox-link"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="regbtn" class="btn btn-reg">Sign Up</button>
+                                <br>
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            Have an account? <a href="{% url 'main:login' %}" class="checkbox-link">Login up Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </form>                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% include 'includes/_footer.html' %}
+    {% include 'includes/_scripts.html' %}
+
+  {% endblock %}

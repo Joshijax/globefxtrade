@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+        {% include 'includes/_navbars.html' %}
+     <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="reg-wrapper">
+            <div class="container">
+                <div class="col-sm-7 col-md-6">
+                    <div class="">
+                        <ul class="nav nav-tabs">
+                            
+                            <li id="btntab2"><a href="#tab2" data-toggle="tab">Log In</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="row">
+                                <!-- alert message -->
+                                                                    
+                                                                    
+                              
+                            </div>
+                            
+                            <div>
+                                <form  id="logForm" method="post" accept-charset="utf-8">
+                                <div class="row">   
+                                <div class="col-xl-12">
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                        <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible  show"{% endif %} role="alert">
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                            {{ message }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        {% endfor %}
+
+                                    {% endif %}
+                                </div>
+                                <div class="col-xl-12" id='message11'>
+                                    
+                                </div> 
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <input class="input__field" type="text" name='username' placeholder="Enter your username" autocomplete="off" required>
+                                            <label class="input__label" for="input">
+                                                <span class="input__label-content" data-content="Username or email">Username </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <input class="input__field" type="password" name="password" placeholder="Enter your Password" required>
+                                            <label class="input__label" for="password">
+                                                <span class="input__label-content" data-content="Password">Password</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-sm-12">
+                                        <div class="input">
+                                            <a href="{% url 'password_reset' %}"  class="forgot">Forgot Password? </a>Don't have an account? <a href="{% url 'main:register' %}" class="checkbox-link">Sign up Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-reg">Log In</button>
+                                
+                                </form>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% include 'includes/_footer.html' %}
+    {% include 'includes/_scripts.html' %}
+
+  {% endblock %}

@@ -16,7 +16,7 @@
         <!-- Start Atribute Navigation -->
         <div class="attr-nav">
             <ul>
-                {% if request.user %}
+                {% if request.user.email %}
                 <li><a href="{% url 'main:dashboard' %}" class="btn nav-btn btn-orange">Dashboard</a></li>
                 {% else %}
                 <li><a href="{% url 'main:login' %}" class="btn nav-btn btn-orange">Login/Register</a></li>

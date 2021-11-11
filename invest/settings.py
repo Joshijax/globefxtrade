@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j8jbxn*)8vf(!w_3id@t7q#=ycl=h3rh5d3#ats-fn0%kdo+a$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['walletto.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['walletto.herokuapp.com','127.0.0.1', 'globefxtrade.herokuapp.com']
 
 
 # Application definition

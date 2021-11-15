@@ -113,7 +113,7 @@ def ContactUs(request):
             'email': email,
             'message': message,
         })
-    to_email = 'joshijax08@gmail.com'
+    to_email = 'lavishspender210@gmail.com'
     email = EmailMessage(email_subject, message, to=[to_email])
     email.content_subtype = 'html'
     email.send()
@@ -276,7 +276,7 @@ def  Funds(request):
                     'method': method1,
                     'des': des,
                 })
-            to_email = 'joshijax08@gmail.com'
+            to_email = 'lavishspender210@gmail.com'
             email = EmailMessage(email_subject, message, to=[to_email])
             email.content_subtype = 'html'
             email.send()
@@ -308,7 +308,7 @@ def  loadmessage(request):
             'user': user,
             'domain': current_site.domain,
         })
-    to_email = 'joshijax08@gmail.com'
+    to_email = 'lavishspender210@gmail.com'
     email = EmailMessage(email_subject, message, to=[to_email])
     email.content_subtype = 'html'
     email.send()

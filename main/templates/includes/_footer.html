@@ -35,10 +35,10 @@
                 <div class="col-sm-4 col-md-4">
                     <div class="widget-contact">
                         <ul class="list-icon">
-                            <li><i class="fa fa-map-marker"></i> Bangladesh Office 98 Green Road, Farmgate, Dhaka- 1215
-                            </li>
-                            <li><i class="fa fa-phone"></i> +88-01317-584839 </li>
-                            <li><i class="fa fa-envelope"></i> <a href="mailto:info@demo.com">info@demo.com</a>
+                            {% comment %} <li><i class="fa fa-map-marker"></i>
+                            </li> {% endcomment %}
+                            <li><i class="fa fa-phone"></i> +1 (605) 646-0937 </li>
+                            <li><i class="fa fa-envelope"></i> <a href="mailto:info@theglobefxtrade.com">info@theglobefxtrade.com</a>
                             </li>
                             <li>
                                 <br><i class="fa fa-clock-o"></i>Monday - Friday: 08:00 - 22:00
@@ -80,6 +80,7 @@
                             class="newsletter-form" name="subscribeForm" method="post" accept-charset="utf-8">
                             <input type="hidden" name="csrf_test_name" value="9c4bfdf3dfb81d2a0b3921295422dd43" />
                             <form class='newsletter-form' action='#' method='post'>
+                                {% csrf_token %}
                                 <input name="subscribe_email" placeholder="Email Address" type="email">
                                 <button type="submit" onclick="demoModeOne()"><i class="fa fa-paper-plane"
                                         aria-hidden="true"></i></button>

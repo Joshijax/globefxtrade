@@ -89,8 +89,8 @@ DATABASES = {
 # DATABASES = {
 # 'default': {
 # 'ENGINE': 'django.db.backends.mysql',
-# 'NAME': 'molipsxa_invest',
-# 'USER': 'molipsxa_invest',
+# 'NAME': 'thegkswa_invest',
+# 'USER': 'thegkswa_invest',
 # 'PASSWORD': 'treasure7031',
 # 'HOST': 'localhost',
 # 'PORT': '3306',
@@ -154,9 +154,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'server268.web-hosting.com'
-EMAIL_HOST_USER = 'coin@theglobefxtrade.com'
-EMAIL_HOST_PASSWORD = 'Globalfx$'
+EMAIL_HOST = 'theglobefxtrade.com'
+EMAIL_HOST_USER = 'info@theglobefxtrade.com'
+EMAIL_HOST_PASSWORD = 'Globefxtrade1212'
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'info@theglobefxtrade.com'
 EMAIL_PORT = 465

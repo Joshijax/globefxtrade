@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j8jbxn*)8vf(!w_3id@t7q#=ycl=h3rh5d3#ats-fn0%kdo+a$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['walletto.herokuapp.com','127.0.0.1', 'globefxtrade.herokuapp.com']
+ALLOWED_HOSTS = ['theglobefxtrade.com', 'www.theglobefxtrade.com','127.0.0.1', 'globefxtrade.herokuapp.com']
 
 
 # Application definition
@@ -155,10 +155,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'server268.web-hosting.com'
-EMAIL_HOST_USER = 'info@worldcryptocoinx.com'
-EMAIL_HOST_PASSWORD = 'Worldcrypto1$'
+EMAIL_HOST_USER = 'coin@theglobefxtrade.com'
+EMAIL_HOST_PASSWORD = 'Globalfx$'
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'info@worldcryptocoinx.com'
+DEFAULT_FROM_EMAIL = 'info@theglobefxtrade.com'
 EMAIL_PORT = 465
 
 

@@ -37,6 +37,18 @@ class Invest(models.Model):
     def __unicode__(self):
         return self.name
 
+class Payment_Method(models.Model):
+    name = models.CharField(max_length = 100, blank=True)
+    # Message = MoneyField(max_digits=14, decimal_places=1, default_currency='USD')
+    Message = models.CharField(max_length = 1000, blank=True)
+    
+    # url = models.URLField("Website", blank=True)
+    
+    def __str__(self):
+        return self.name
+    def __unicode__(self):
+        return self.name
+
 class Message(models.Model):
     message = models.CharField(max_length = 100, blank=True)
     

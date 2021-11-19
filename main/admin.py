@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from main.models import Invest, Message, Replys, UserType
+from main.models import Invest, Message, Payment_Method, Replys, UserType
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
@@ -9,6 +9,7 @@ admin.site.register(Invest)
 admin.site.register(UserType)
 admin.site.register(Message)
 admin.site.register(Replys)
+admin.site.register(Payment_Method)
 
 class ProfileInline(admin.StackedInline):
     model = UserType

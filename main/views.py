@@ -24,7 +24,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
-from main.models import Invest, Message
+from main.models import Invest, Message, Payment_Method
 from .token_generator import account_activation_token
 # from PIL import Image
 from functools import wraps
@@ -256,7 +256,8 @@ def  contact(request):
 @login_required(login_url='/Login')
 def  Investments(request):
     invest = Invest.objects.all()
-    return render(request, 'invest.html', {'media_url': settings.MEDIA_URL, 'invest': invest,})
+    pay = Payment_Method.objects.all()
+    return render(request, 'invest.html', {'media_url': settings.MEDIA_URL, 'invest': invest, 'pay': pay,})
 
 @login_required(login_url='/Login')
 @csrf_exempt
@@ -301,31 +302,35 @@ def  Funds(request):
 def  loadmessage(request):
     current_site = get_current_site(request)
     emaill = request.POST.get('email', None)
+    paymethod = request.POST.get('paymethod', None)
     user = User.objects.get(email=emaill)
-    print(emaill, user.username)
-    email_subject = f'{user.username} Just made an investment'
-    message = render_to_string('investmsg.html', {
-            'user': user,
-            'domain': current_site.domain,
-        })
-    to_email = 'lavishspender210@gmail.com'
-    email = EmailMessage(email_subject, message, to=[to_email])
-    email.content_subtype = 'html'
-    email.send()
+    
+    # print(emaill, user.username)
+    # email_subject = f'{user.username} Just made an investment'
+    # message = render_to_string('investmsg.html', {
+    #         'user': user,
+    #         'domain': current_site.domain,
+    #     })
+    # to_email = 'lavishspender210@gmail.com'
+    # email = EmailMessage(email_subject, message, to=[to_email])
+    # email.content_subtype = 'html'
+    # email.send()
 
     msg = Message.objects.all()
+    main_msg = Payment_Method.objects.get(name=paymethod)
+    print(paymethod, main_msg.Message)
 
-    email_subject1 = f' Hello {user.username} Investment recieved'
-    message1 = render_to_string('investmsg2.html', {
-            'user': user,
-            'msg': msg,
-            'domain': current_site.domain,
-        })
-    to_email1 = emaill
-    email = EmailMessage(email_subject1, message1, to=[to_email1])
-    email.content_subtype = 'html'
-    email.send()
-    return render(request, 'includes/message.html', {'media_url': settings.MEDIA_URL,'message': msg})
+    # email_subject1 = f' Hello {user.username} Investment recieved'
+    # message1 = render_to_string('investmsg2.html', {
+    #         'user': user,
+    #         'msg': msg,
+    #         'domain': current_site.domain,
+    #     })
+    # to_email1 = emaill
+    # email = EmailMessage(email_subject1, message1, to=[to_email1])
+    # email.content_subtype = 'html'
+    # email.send()
+    return render(request, 'includes/message.html', {'media_url': settings.MEDIA_URL,'message': msg,'mainMsg': main_msg})
 
 def  Services(request):
     

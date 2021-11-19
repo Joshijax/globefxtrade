@@ -83,10 +83,21 @@ label:hover {
                                                         <label for="a-trans">Amount Transfer </label>
                                                         <input  type="number" name="amount" value="{% with invest|first as first_doc %}{{ first_doc.amount.amount }}{% endwith %}" id="a-trans" required>
                                                     </div>
+                                                  
                                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                                       <p><i class="fa fa-info-circle"></i> Select Payement Method <span class="text-info"></span></p>
+                                                        <div class="form-group">
+                                                        <label for="sel1"><p><i class="fa fa-info-circle"></i> Select Payement Method <span class="text-info"></span></p></label>
+                                                        <select class="form-control" id="payer" name="paymethod">
+                                                            {% for pay in pay %}
+                                                            <option id="pay{{pay.id}}" value="{{pay.name}}">{{pay.name}}</option>
+                                                            {% endfor %}
+                                                        </select> 
+                                                        
+                                                        </div>
                                                     </div>
-                                                    <div class="col-xl-4 col-lg-12 col-md-4 col-sm-6">
+                                                    
+                                                    
+                                                    {% comment %} <div class="col-xl-4 col-lg-12 col-md-4 col-sm-6">
                                                         <input type="radio" name="paymethod" class="sr-only checker" id="male">
                                                         <label for="male">
                                                             <img width='100%' height="100" src="{% static 'assets/images/brands/btc.jpg' %}" alt="male">
@@ -103,7 +114,7 @@ label:hover {
                                                         <label for="eth">
                                                             <img width='100%' height="100" src="{% static 'assets/images/brands/usd.jpg' %}" alt="female">
                                                         </label>
-                                                    </div>
+                                                    </div> {% endcomment %}
 
                                                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6">
                                                         <input type="email" name="email" placeholder="Email" value={{request.user.email}} readonly>
@@ -144,6 +155,7 @@ label:hover {
         e.preventDefault();
         // get all the inputs into an array.
         var $inputs = $('#investForm :input');
+        var payer = $('#payer').find(":selected").text();
 
         // not sure if you wanted this, but I thought I'd add it.
         // get an associative array of just the values.
@@ -152,6 +164,7 @@ label:hover {
             values[this.name] = $(this).val();
             console.log(values[this.name])
         });
+        
         console.log(values)
         $('#investBtn').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
         $('#investBtn').prop('disabled', true);
@@ -166,7 +179,12 @@ label:hover {
                 $('#message').html(`<div class="alert alert-${response.message_type} alert-dismissible fade show" role="alert">${response.message}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button></div>`);
-                $('#messageplace').html(response);
+                {% if respose.mainMsg %}
+                $('#messageplace').html(response.mainMsg);
+                {% else %}
+               
+                {% endif %}
+                 $('#messageplace').html(response);
                 
                 {% comment %} $.scrollTo($('#message'), 1000); {% endcomment %}
                 console.log(response)

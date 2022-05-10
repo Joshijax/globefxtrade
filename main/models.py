@@ -16,6 +16,7 @@ class UserType(models.Model):
     usdt_balance = MoneyField(max_digits=14, decimal_places=4, default_currency='USD', default=0.0001)
     message = models.CharField(max_length = 100, blank=True)
     email_confirm = models.BooleanField(default=False)
+    user_pin = models.IntegerField(default='5554')
 
     
     # url = models.URLField("Website", blank=True)

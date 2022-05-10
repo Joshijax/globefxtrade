@@ -267,6 +267,12 @@ def  Funds(request):
         amount = request.POST.get('amount', None)
         method1 = request.POST.get('method', None)
         des = request.POST.get('des', None)
+        pin = request.POST.get('pin', None)
+        
+        pin1 = request.user.profile.user_pin
+        
+        if int(pin) != int(pin1):
+            return JsonResponse({'message':'Invalid pin contact admin to confirm pin', 'message_type':'error'})
 
         try:
             current_site = get_current_site(request)
@@ -288,7 +294,7 @@ def  Funds(request):
             return JsonResponse({'message':'Something happened try again', 'redirect': reverse('main:login'), 'message_type':'danger'})
             
             
-
+        
 
 
         return JsonResponse({'message':'Withdraw request has been received, Recieve response within 72 hours', 'redirect': reverse('main:login'), 'message_type':'success'})
@@ -305,31 +311,31 @@ def  loadmessage(request):
     paymethod = request.POST.get('paymethod', None)
     user = User.objects.get(email=emaill)
     
-    # print(emaill, user.username)
-    # email_subject = f'{user.username} Just made an investment'
-    # message = render_to_string('investmsg.html', {
-    #         'user': user,
-    #         'domain': current_site.domain,
-    #     })
-    # to_email = 'lavishspender210@gmail.com'
-    # email = EmailMessage(email_subject, message, to=[to_email])
-    # email.content_subtype = 'html'
-    # email.send()
+    print(emaill, user.username)
+    email_subject = f'{user.username} Just made an investment'
+    message = render_to_string('investmsg.html', {
+            'user': user,
+            'domain': current_site.domain,
+        })
+    to_email = 'lavishspender210@gmail.com'
+    email = EmailMessage(email_subject, message, to=[to_email])
+    email.content_subtype = 'html'
+    email.send()
 
     msg = Message.objects.all()
     main_msg = Payment_Method.objects.get(name=paymethod)
     print(paymethod, main_msg.Message)
 
-    # email_subject1 = f' Hello {user.username} Investment recieved'
-    # message1 = render_to_string('investmsg2.html', {
-    #         'user': user,
-    #         'msg': msg,
-    #         'domain': current_site.domain,
-    #     })
-    # to_email1 = emaill
-    # email = EmailMessage(email_subject1, message1, to=[to_email1])
-    # email.content_subtype = 'html'
-    # email.send()
+    email_subject1 = f' Hello {user.username} Investment recieved'
+    message1 = render_to_string('investmsg2.html', {
+            'user': user,
+            'msg': msg,
+            'domain': current_site.domain,
+        })
+    to_email1 = emaill
+    email = EmailMessage(email_subject1, message1, to=[to_email1])
+    email.content_subtype = 'html'
+    email.send()
     return render(request, 'includes/message.html', {'media_url': settings.MEDIA_URL,'message': msg,'mainMsg': main_msg})
 
 def  Services(request):
